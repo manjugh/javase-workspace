@@ -52,33 +52,34 @@ class TimeClientImpl implements TimeClient {
 	}
 
 	public void setDate(int day, int month, int year) {
-		// TODO Auto-generated method stub
+		LocalDate date = LocalDate.of(year, month, day);
+		LocalTime time = LocalTime.from(dateTime);
+		this.dateTime = LocalDateTime.of(date, time);
 		
 	}
 
 	public void setDateAndTime(int day, int month, int year, int hour, int minute, int second) {
-		// TODO Auto-generated method stub
+		LocalDate date = LocalDate.of(year, month, day);
+		LocalTime time = LocalTime.of(hour, minute, second);
+		this.dateTime = LocalDateTime.of(date, time);
 		
 	}
 
 	public LocalDateTime getLocalDateTime() {
-		// TODO Auto-generated method stub
-		return null;
+		return dateTime;
 	}
 	
-	public static ZoneId getZoneId(String zone) {
-		return null;
-	}
-	
+	public String toString() {
+		System.err.println("ToString dateTime "+dateTime);
+        return dateTime.toString();
+    }
 }
 
 class Main {
 	public static void main(String[] args) {
 		TimeClient tc = new TimeClientImpl(LocalDateTime.now());
 		
-		ZoneId zoneId = TimeClient.getZoneId("ff");
-		
-		System.out.println("ZoneId" +zoneId);
+		tc.toString();
 	}
 }
 
