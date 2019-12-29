@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
 import java.lang.instrument.UnmodifiableClassException;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class ArrayListFactoryMethodTest {
@@ -15,7 +17,14 @@ public class ArrayListFactoryMethodTest {
     void createImmutableList_WhenValidValues_ThenReturnUnmodifiableList(){
         List<String> javaList = List.of("java9", "java10", "java11","java12","java13");
         Assertions.assertThrows(UnsupportedOperationException.class, () -> javaList.add("java14"));
+        Collections.emptyList();
     }
+
+    /*@Test
+    void createImmutableList_WhenArray_ThenReturnUnmodifiableList(){
+        List<String> javaList = List.of(Arrays.asList());
+        Assertions.assertThrows(UnsupportedOperationException.class, () -> javaList.add("java14"));
+    }*/
 
     @Test
     void createImmutableList_WhenNullValue_ThenEceptiom(){
