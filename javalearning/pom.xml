@@ -17,7 +17,7 @@
 
     <properties>
         <junit-jupiter.version>5.5.2</junit-jupiter.version>
-        <assrtj.version>3.14.0</assrtj.version>
+        <assrtj.version>3.27.7</assrtj.version>
     </properties>
 
     <dependencyManagement>
